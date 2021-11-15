@@ -4,14 +4,14 @@ public class Student {
     char serie;
     int anStudiu;
     String facultate;
-    double [] note = new double [] {8,6,4,9,7,5,8,9,6,5};
+    double [] note = new double [] {4,7,8,9};
 
 
     Student() {
     }
 
 
-    Student(String nume, int grupa, String facultate, int anStudiu) {
+    Student(String nume, String facultate, int anStudiu, double[] note) {
 
         this.nume = nume;
         this.grupa = grupa;
@@ -25,23 +25,25 @@ public class Student {
         this.serie = serie;
         this.note = note;
      }
+    
 //Urmeaza metoda sePrezinta
     String sePrezinta(){
-        String prezentare = nume + " este student la " + facultate + ", in anul " + anStudiu
-                + ", in grupa "+ grupa + ".";
+        String prezentare = "Studentul " + this.nume + " este elev la " + this.facultate + " in anul "
+                + this.anStudiu + ", avand notele ";
         return prezentare;
     }
+    
 //Urmeaza metoda getMedie
 
      double getMedie() {
          double medie = 0;
-         int i;
-         for (i = 0; i < note.length; i++) {
-             medie += note[(int) i] / note.length;
+         for (int i = 0; i < note.length; i++) {
+             medie = medie + note[i] / note.length;
          }
 
          return medie;
      }
+    
 //Urmeaza metoda getMin
 
      int getMin(){
@@ -74,9 +76,9 @@ public class Student {
          int i;
          for (i = 0; i < note.length; i++) {
              if (note[i] > 5) {
-                 pesteCinci = " este integralist";
+                 pesteCinci = " este integralist, neavand note sub 5";
              } else {
-                 pesteCinci = " nu este integralist";
+                 pesteCinci = " nu este integralist, avand note sub 5";
              }
             }
          return pesteCinci;
